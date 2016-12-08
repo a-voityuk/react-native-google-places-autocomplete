@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { TextInput, View, ListView, ScrollView, Image, Text, Dimensions, TouchableHighlight, TouchableWithoutFeedback, Platform, ActivityIndicator, PixelRatio } from 'react-native';
 import Qs from 'qs';
+var SearchBar = require('react-native-search-bar');
 
 const WINDOW = Dimensions.get('window');
 
@@ -594,6 +595,15 @@ const GooglePlacesAutocomplete = React.createClass({
         <View
           style={[defaultStyles.textInputContainer, this.props.styles.textInputContainer]}
         >
+          {(Platform.OS === 'ios') ?
+          <SearchBar
+            ref="textInput"
+            showsCancelButton={true}
+            text={this.state.text}
+            placeholder={this.props.placeholder}
+            onChangeText={onChangeText ? text => {this._onChangeText(text); onChangeText(text)} : this._onChangeText}
+            onFocus={onFocus ? () => {this._onFocus(); onFocus()} : this._onFocus}
+          /> :
           <TextInput
             { ...userProps }
             ref="textInput"
@@ -605,7 +615,7 @@ const GooglePlacesAutocomplete = React.createClass({
             placeholderTextColor={this.props.placeholderTextColor}
             onFocus={onFocus ? () => {this._onFocus(); onFocus()} : this._onFocus}
             clearButtonMode="while-editing"
-          />
+          />}
         </View>
         {this._getListView()}
         {this.props.children}
