@@ -598,6 +598,7 @@ const GooglePlacesAutocomplete = React.createClass({
           {(Platform.OS === 'ios') ?
           <SearchBar
             ref="textInput"
+            barTintColor={this.props.textInputBarTintColor}
             showsCancelButton={true}
             text={this.state.text}
             placeholder={this.props.placeholder}
