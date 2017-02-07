@@ -124,7 +124,10 @@ const GooglePlacesAutocomplete = React.createClass({
       filterReverseGeocodingByTypes: [],
       predefinedPlacesAlwaysVisible: false,
       enableEmptySections: true,
-      listViewDisplayed: 'auto'
+      listViewDisplayed: 'auto',
+      textInputBarTintColor: 'white',
+      textInputCancelColor: 'blue',
+      textInputTextColor: 'blue'
     };
   },
 
@@ -600,6 +603,7 @@ const GooglePlacesAutocomplete = React.createClass({
             ref="textInput"
             barTintColor={this.props.textInputBarTintColor}
             cancelColor={this.props.textInputCancelColor}
+            textColor={this.props.textInputTextColor}
             showsCancelButton={true}
             text={this.state.text}
             placeholder={this.props.placeholder}
