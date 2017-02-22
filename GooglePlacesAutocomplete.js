@@ -614,6 +614,7 @@ const GooglePlacesAutocomplete = React.createClass({
             { ...userProps }
             ref="textInput"
             autoFocus={this.props.autoFocus}
+            underlineColorAndroid="transparent"
             style={[defaultStyles.textInput, this.props.styles.textInput]}
             onChangeText={onChangeText ? text => {this._onChangeText(text); onChangeText(text)} : this._onChangeText}
             value={this.state.text}
