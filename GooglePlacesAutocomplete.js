@@ -602,9 +602,12 @@ const GooglePlacesAutocomplete = React.createClass({
           <SearchBar
             ref="textInput"
             barTintColor={this.props.textInputBarTintColor}
+            tintColor={this.props.textInputTintColor}
             cancelColor={this.props.textInputCancelColor}
             textColor={this.props.textInputTextColor}
             showsCancelButton={true}
+            hideBackground={this.props.textInputHideBackground}
+            textFieldBackgroundColor={this.props.textInputBackgroundColor}
             text={this.state.text}
             placeholder={this.props.placeholder}
             onChangeText={onChangeText ? text => {this._onChangeText(text); onChangeText(text)} : this._onChangeText}
